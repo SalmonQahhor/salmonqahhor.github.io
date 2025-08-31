@@ -1,4 +1,4 @@
-# The Beginning of My Web Journey
+# **The Beginning of My Web Journey**
 
 #### Current position: Student of TSUE, Python and Web Development learner, Politics and Economics learner
 #### Potential Future position: Full-Stack develeper, Data Analyst, Cybersecurity developer, political scientist
@@ -14,6 +14,10 @@
 - Later, the project turned into something more meaningful for us, and we continued under the name “ePlanet.” Together, we accomplished a lot — gathering nearly 2,000 subscribers and sharing unique content that couldn’t be found anywhere else. From creative posts and media to knowledge about technology and space, we poured deep research into every post, and the results reflected that effort.
 - In the end, this channel became more than just a project — it showed us the path forward in IT.
 
-- Conducted data collection, processing, and analysis for novel study evaluating the impact of over 300 biometrics variables on human performance in hyper-realistic, live-fire training scenarios
-- Applied unsupervised deep learning approaches to longitudinal ICU data to discover novel sepsis sub-phenotypes
 
+
+## Social Links
+
+### Telegram - t.me/SalmonPC
+### Instagram - instagram.com/salmonqahhor
+### GitHub - github.com/SalmonQahhor
