@@ -18,6 +18,6 @@
 
 ## Social Links
 
-### Telegram - https://t.me/SalmonPC
-### Instagram - https://instagram.com/salmonqahhor
-### GitHub - https://github.com/SalmonQahhor
+### [Telegram](https://t.me/SalmonPC)
+### [Instagram](https://instagram.com/salmonqahhor)
+### [GitHub](https://github.com/SalmonQahhor)
