@@ -3,6 +3,7 @@
 #### Current position: Student of TSUE, Python and Web Development learner, Politics and Economics learner
 #### Potential Future position: Full-Stack develeper, Data Analyst, Cybersecurity developer, political scientist
 
+
 ## The beginning of my story
 - I have been passionate about building websites since my early teenage years, spending nearly 6–7 years fascinated by web development and dreaming of becoming a web developer. Along the way, my journey unexpectedly shifted toward graphic design, where I gained valuable creative experience.						       		
 - During this time, I also launched a telegram channel dedicated to IT and gaming, which allowed me to explore my interests even further. My enthusiasm reached its peak — I felt confident and ready to step fully into the tech world. However, just as I was prepared to move forward, challenges with entering university put everything on pause.
