@@ -351,25 +351,31 @@ main h1 {
 
 /* 7. Responsive */
 @media (max-width: 768px) {
-    .me {
-        flex-direction: column-reverse;
-        text-align: center;
-    }
-    
-    .me-text h1 {
-        white-space: normal;
-        font-size: 2.5rem;
-    }
-    
-    .me-image {
-        justify-content: center;
+    body {
+        padding: 0 15px; /* Chetdan ozroq masofa */
     }
 
-    .about-card {
-        padding: 30px 20px;
+    .me {
+        flex-direction: column-reverse; /* Rasmni matndan tepaga yoki pastga suradi */
+        text-align: center;
+        gap: 30px;
+    }
+
+    .me-text h1 {
+        font-size: 2.2rem; /* Sarlavhani kichraytiradi */
+        white-space: normal; /* Matnni keyingi qatorga o'tkazadi */
+    }
+
+    .me-image img {
+        max-width: 250px; /* Rasmni mobilga moslaydi */
+    }
+
+    .projects-container {
+        gap: 20px;
     }
 
     .project-card {
-        flex: 1 1 100%;
+        flex: 1 1 100%; /* Kartochkalarni to'liq kenglikda qiladi */
+        max-width: 100%;
     }
 }
