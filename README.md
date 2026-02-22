@@ -3,7 +3,7 @@
 Welcome to my personal portfolio website! This project showcases my skills, projects, and professional background as a Full-Stack Developer and Economist in progress.
 
 ## 🌐 Live Demo
-You can view the live site here: [https://salmonqahhor.github.io/my-portfolio/](https://salmonqahhor.github.io)
+You can view the live site here: [Tap to view](https://salmonqahhor.github.io)
 
 ## 🛠 Technologies Used
 * **HTML5** - Base structure
