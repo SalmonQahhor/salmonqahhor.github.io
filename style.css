@@ -48,6 +48,72 @@ nav a:hover {
     margin: 40px auto 100px auto;
     gap: 60px;
 }
+/* 1. Ismni Gradiyent qilish */
+.gradient-text {
+    background: linear-gradient(90deg, #ffffff, #22d3ee);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 4rem;
+    font-weight: 800;
+}
+
+/* 2. Rasm atrofidagi Neon Glow (Skrinshotdagi kabi) */
+.glow-container {
+    position: relative;
+    padding: 8px; /* Ramka qalinligi */
+    background: linear-gradient(45deg, #22d3ee, #00d2ff, #22d3ee);
+    border-radius: 35px; /* Rasm burchagi */
+    box-shadow: 0 0 30px rgba(34, 211, 238, 0.4);
+}
+
+.me-image img {
+    max-width: 380px;
+    border-radius: 30px;
+    display: block;
+}
+
+/* 3. Kodli oyna (Glassmorphism effekt) */
+.code-box {
+    margin-top: 30px;
+    background: rgba(22, 29, 47, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 15px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    max-width: 400px;
+}
+
+.purple { color: #c678dd; }
+.green { color: #98c379; }
+
+/* 4. Typing Effect (Yozilish effekti) */
+.typing {
+    color: #22d3ee;
+    border-right: 2px solid #22d3ee;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+    animation: typing 3s steps(40, end) forwards, blink 0.8s infinite;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink {
+    50% { border-color: transparent }
+}
+
+/* 5. Mobil versiya uchun kichik tuzatish */
+@media (max-width: 768px) {
+    .gradient-text { font-size: 2.5rem; }
+    .me-image img { max-width: 280px; }
+    .typing { white-space: normal; width: auto; animation: none; border: none; }
+}
 
 .me-text {
     flex: 1.5;
