@@ -55,8 +55,7 @@ nav a:hover {
     background: linear-gradient(90deg, #ffffff, #22d3ee);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-size: 4rem;
-    font-weight: 800;
+    font-weight: bold;
 }
 
 /* 2. Rasm atrofidagi Neon Glow (Skrinshotdagi kabi) */
@@ -461,19 +460,46 @@ main h1 {
 
 .terminal-wrapper {
     width: 100%;
-    max-width: 500px; /* Terminalni kichik oyna qiladi */
-    background: rgba(15, 23, 42, 0.95);
+    max-width: 450px; 
+    background: rgba(15, 23, 42, 0.9);
     border-radius: 10px;
+    margin-top: 20px;
+    border: 1px solid #334155;
     overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    margin-top: 25px;
 }
 
-.terminal-header { background: #1e293b; padding: 8px; display: flex; align-items: center; border-radius: 10px 10px 0 0; }
-.terminal-body { padding: 15px; height: 180px; overflow-y: auto; }
+.terminal-header {
+    background: #334155;
+    padding: 8px 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.dot { width: 10px; height: 10px; border-radius: 50%; }
+.red { background: #ff5f56; }
+.yellow { background: #ffbd2e; }
+.green { background: #27c93f; }
+
+.terminal-title {
+    color: #cbd5e1;
+    font-size: 12px;
+    margin-left: 10px;
+    font-family: monospace;
+}
+
+.terminal-body {
+    padding: 15px;
+    height: 200px;
+    overflow-y: auto;
+    font-family: monospace;
+    font-size: 14px;
+    color: white;
+}
+
+.input-line { display: flex; gap: 8px; margin-top: 5px; }
+#terminal-input { background: transparent; border: none; color: white; outline: none; width: 100%; }
 .input-area { display: flex; gap: 10px; }
-#terminal-input { background: transparent; border: none; outline: none; color: #fff; width: 100%; }
 .social-icons { display: flex; gap: 15px; margin: 15px 0; font-size: 1.5rem; }
 .social-icons a { color: #fff; transition: 0.3s; }
 .social-icons a:hover { color: #22d3ee; }
