@@ -32,8 +32,7 @@
                     <a href="#" target="_blank"><i class="fab fa-github"></i></a>
                     <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
                 </div>
-
-            <div class="terminal-wrapper">
+<div class="terminal-wrapper">
     <div class="terminal-header" style="background: #334155; padding: 8px 15px; display: flex; gap: 8px;">
         <span style="width:12px; height:12px; background:#ff5f56; border-radius:50%"></span>
         <span style="width:12px; height:12px; background:#ffbd2e; border-radius:50%"></span>
@@ -51,7 +50,7 @@
 </div>
 
 <script>
-
+// Matrix effekti endi sahifani yopib qo'ymaydi
 function startMatrix() {
     const canvas = document.getElementById('matrix-canvas');
     const ctx = canvas.getContext('2d');
@@ -65,7 +64,7 @@ function startMatrix() {
     const drops = Array(Math.floor(columns)).fill(1);
 
     function draw() {
-        ctx.fillStyle = "rgba(0, 0, 0, 0.1)"; 
+        ctx.fillStyle = "rgba(0, 0, 0, 0.1)"; // Harflar orqasidan iz qoldiradi
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         ctx.fillStyle = "#0f0";
         ctx.font = fontSize + "px monospace";
@@ -80,12 +79,12 @@ function startMatrix() {
     setInterval(draw, 35);
 }
 
-
+// Terminal logikasi (hack buyrug'i uchun)
 document.getElementById('terminal-input').addEventListener('keydown', function(e) {
     if (e.key === 'Enter') {
         const cmd = this.value.toLowerCase().trim();
         if (cmd === 'hack') {
-            startMatrix(); 
+            startMatrix(); // Faqat orqa fonda ishga tushadi
             const res = document.createElement('div');
             res.innerHTML = "<span style='color:#0f0'>Access Granted! Matrix orqa fonda yoqildi...</span>";
             document.getElementById('terminal-screen').insertBefore(res, this.parentElement);
