@@ -33,102 +33,64 @@
                     <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
                 </div>
 
-                <div class="terminal-wrapper">
-                    <div class="terminal-header">
-                        <div class="buttons">
-                            <span class="dot red"></span>
-                            <span class="dot yellow"></span>
-                            <span class="dot green"></span>
-                        </div>
-                        <div class="terminal-title">bash — salmon@portfolio</div>
-                    </div>
-                    <div class="terminal-body" id="terminal-screen">
-                        <div class="line">Tizim tayyor. <span class="cmd-highlight">'help'</span> deb yozing.</div>
-                        <div class="input-area">
-                            <span class="prompt">salmon@pentest:~$</span>
-                            <input type="text" id="terminal-input" autocomplete="off" autofocus>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div class="terminal-wrapper">
+    <div class="terminal-header" style="background: #334155; padding: 8px 15px; display: flex; gap: 8px;">
+        <span style="width:12px; height:12px; background:#ff5f56; border-radius:50%"></span>
+        <span style="width:12px; height:12px; background:#ffbd2e; border-radius:50%"></span>
+        <span style="width:12px; height:12px; background:#27c93f; border-radius:50%"></span>
+        <span style="color: #cbd5e1; font-size: 12px; margin-left: 10px; font-family: monospace;">bash — salmon@portfolio</span>
+    </div>
+    
+    <div class="terminal-body" id="terminal-screen" style="padding: 15px; height: 200px; overflow-y: auto; font-family: monospace;">
+        <div style="color: #94a3b8;">Tizim tayyor. 'help' deb yozing.</div>
+        <div class="input-area" style="display: flex; gap: 8px; margin-top: 5px;">
+            <span style="color: #2ecc71;">salmon@pentest:~$</span>
+            <input type="text" id="terminal-input" style="background:transparent; border:none; color:white; outline:none; width:100%;" autofocus>
+        </div>
+    </div>
+</div>
 
-            <div class="me-image">
-                <div class="glow-container">
-                    <img src="images/salmon.JPEG" alt="Salmon">
-                </div>
-            </div>
-        </header>
-    </main>
+<script>
 
-    <script>
-        const terminalInput = document.getElementById('terminal-input');
-        const terminalScreen = document.getElementById('terminal-screen');
-        const canvas = document.getElementById('matrix-canvas');
-        const ctx = canvas.getContext('2d');
-        let matrixInterval;
+function startMatrix() {
+    const canvas = document.getElementById('matrix-canvas');
+    const ctx = canvas.getContext('2d');
+    canvas.style.display = 'block';
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 
-        // Matrix yomg'iri funksiyasi
-        function startMatrix() {
-            canvas.style.display = 'block';
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            const letters = "0101010101010101";
-            const fontSize = 16;
-            const columns = canvas.width / fontSize;
-            const drops = Array(Math.floor(columns)).fill(1);
+    const letters = "01010101";
+    const fontSize = 16;
+    const columns = canvas.width / fontSize;
+    const drops = Array(Math.floor(columns)).fill(1);
 
-            function draw() {
-                ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
-                ctx.fillRect(0, 0, canvas.width, canvas.height);
-                ctx.fillStyle = "#0f0";
-                ctx.font = fontSize + "px monospace";
-                for (let i = 0; i < drops.length; i++) {
-                    const text = letters.charAt(Math.floor(Math.random() * letters.length));
-                    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-                    if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
-                    drops[i]++;
-                }
-            }
-            matrixInterval = setInterval(draw, 33);
+    function draw() {
+        ctx.fillStyle = "rgba(0, 0, 0, 0.1)"; 
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = "#0f0";
+        ctx.font = fontSize + "px monospace";
+
+        for (let i = 0; i < drops.length; i++) {
+            const text = letters.charAt(Math.floor(Math.random() * letters.length));
+            ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+            if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+            drops[i]++;
         }
+    }
+    setInterval(draw, 35);
+}
 
-        // Terminal buyruqlari
-        terminalInput.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter') {
-                const cmd = terminalInput.value.trim().toLowerCase();
-                const userLine = document.createElement('div');
-                userLine.innerHTML = `<span class="prompt">salmon@pentest:~$</span> ${terminalInput.value}`;
-                terminalScreen.insertBefore(userLine, terminalInput.parentElement);
 
-                const response = document.createElement('div');
-                response.style.margin = "5px 0 10px 0";
-
-                if (cmd === 'help') {
-                    response.innerHTML = "Buyruqlar: about, hack, stop, clear";
-                } else if (cmd === 'hack') {
-                    response.style.color = "#0f0";
-                    response.innerHTML = "Access Granted! Matrix ishga tushdi...";
-                    startMatrix();
-                } else if (cmd === 'stop') {
-                    clearInterval(matrixInterval);
-                    canvas.style.display = 'none';
-                    response.innerHTML = "Matrix to'xtatildi.";
-                } else if (cmd === 'about') {
-                    response.innerHTML = "Salmon Qahhorov: Full-stack dev & Pentester in progress.";
-                } else if (cmd === 'clear') {
-                    const lines = terminalScreen.querySelectorAll('div:not(.input-area)');
-                    lines.forEach(l => l.remove());
-                    terminalInput.value = '';
-                    return;
-                } else {
-                    response.innerHTML = `<span style="color: #ff5f56">Error: '${cmd}' not found.</span>`;
-                }
-
-                terminalScreen.insertBefore(response, terminalInput.parentElement);
-                terminalInput.value = '';
-                terminalScreen.scrollTop = terminalScreen.scrollHeight;
-            }
-        });
-    </script>
-</body>
-</html>
+document.getElementById('terminal-input').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') {
+        const cmd = this.value.toLowerCase().trim();
+        if (cmd === 'hack') {
+            startMatrix(); 
+            const res = document.createElement('div');
+            res.innerHTML = "<span style='color:#0f0'>Access Granted! Matrix orqa fonda yoqildi...</span>";
+            document.getElementById('terminal-screen').insertBefore(res, this.parentElement);
+        }
+        this.value = '';
+    }
+});
+</script>
