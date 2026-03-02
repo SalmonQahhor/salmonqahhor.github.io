@@ -40,7 +40,7 @@
                             <span class="dot yellow"></span>
                             <span class="dot green"></span>
                         </div>
-                        <div class="terminal-title">bash — root@bash</div>
+                        <div class="terminal-title">bash — salmon@portfolio</div>
                     </div>
                     <div class="terminal-body" id="terminal-screen">
                         <div class="line">Tizim tayyor. <span class="cmd-highlight">'help'</span> deb yozing.</div>
@@ -67,7 +67,7 @@
         const ctx = canvas.getContext('2d');
         let matrixInterval;
 
-        
+        // Matrix yomg'iri funksiyasi
         function startMatrix() {
             canvas.style.display = 'block';
             canvas.width = window.innerWidth;
@@ -92,7 +92,7 @@
             matrixInterval = setInterval(draw, 33);
         }
 
-    
+        // Terminal buyruqlari
         terminalInput.addEventListener('keydown', (e) => {
             if (e.key === 'Enter') {
                 const cmd = terminalInput.value.trim().toLowerCase();
