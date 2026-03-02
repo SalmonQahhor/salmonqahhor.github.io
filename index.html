@@ -19,47 +19,57 @@
         <a href="links.html">Links</a>
     </nav>
 
-    <main>
-        <header class="me">
-            <div class="me-text">
-                <h1 class="gradient-text">Salmon Qahhorov</h1>
-                <h2 class="typing">Full-Stack Developer va Pentester in progress...</h2>
+    
+<main class="hero-section">
+    <div class="container">
+        <div class="hero-content">
+            <div class="text-side">
+                <div class="badge">Available for Projects</div>
+                <h1 class="modern-name">Salmon <span>Qahhorov</span></h1>
+                <h2 class="sub-title">Full-Stack Developer & <span class="accent">Cyber Security Student</span></h2>
+                <p class="description">
+                    Muammolarni yechishni yoqtiradigan, har kuni yangi bilimga intiluvchi dasturchi. 
+                    Tizimlar xavfsizligi va mukammal kod yozish — mening asosiy maqsadim.
+                </p>
                 
-                <p class="description">I am a natural problem solver who learns something new every day. Constantly pushing limits to grow in every direction.</p>
-
-                <div class="social-icons">
-                    <a href="#" target="_blank"><i class="fab fa-telegram"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                <div class="social-links">
+                    <a href="#" class="social-item"><i class="fab fa-telegram"></i></a>
+                    <a href="#" class="social-item"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-item"><i class="fab fa-instagram"></i></a>
                 </div>
+            </div>
 
-                <div class="terminal-wrapper">
-                    <div class="terminal-header">
-                        <span class="dot red"></span>
-                        <span class="dot yellow"></span>
-                        <span class="dot green"></span>
-                        <span class="terminal-title">bash — salmon@portfolio</span>
+            <div class="visual-side">
+                <div class="image-wrapper">
+                    <div class="glow-layer"></div>
+                    <img src="images/salmon.JPEG" alt="Salmon" class="profile-img">
+                </div>
+                
+                <div class="modern-terminal">
+                    <div class="term-header">
+                        <div class="term-dots">
+                            <span class="t-dot r"></span>
+                            <span class="t-dot y"></span>
+                            <span class="t-dot g"></span>
+                        </div>
+                        <div class="term-user">salmon@pentest:~</div>
                     </div>
-                    
-                    <div class="terminal-body" id="terminal-screen">
+                    <div class="term-body" id="terminal-screen">
                         <div id="output-area">
-                            <div style="color: #94a3b8;">Tizim tayyor. 'help' deb yozing.</div>
+                            <div class="term-welcome">System ready. Type 'help' to start.</div>
                         </div>
                         <div class="input-line">
-                            <span class="prompt">salmon@pentest:~$</span>
-                            <input type="text" id="terminal-input" spellcheck="false" autofocus>
+                            <span class="t-prompt">$</span>
+                            <input type="text" id="terminal-input" autofocus autocomplete="off">
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+</main>
 
-            <div class="me-image">
-                <div class="glow-container">
-                    <img src="images/salmon.JPEG" alt="Salmon">
-                </div>
-            </div>
-        </header>
-    </main>
+    
 
 <script>
 const terminalInput = document.getElementById('terminal-input');
