@@ -40,6 +40,11 @@
         <span style="color: #cbd5e1; font-size: 12px; margin-left: 10px; font-family: monospace;">bash — salmon@portfolio</span>
     </div>
     
+    <div class="me-image">
+                <div class="glow-container">
+                    <img src="images/salmon.JPEG" alt="Salmon">
+                </div>
+        
     <div class="terminal-body" id="terminal-screen" style="padding: 15px; height: 200px; overflow-y: auto; font-family: monospace;">
         <div style="color: #94a3b8;">Tizim tayyor. 'help' deb yozing.</div>
         <div class="input-area" style="display: flex; gap: 8px; margin-top: 5px;">
@@ -50,7 +55,8 @@
 </div>
 
 <script>
-// Matrix effekti endi sahifani yopib qo'ymaydi
+
+    
 function startMatrix() {
     const canvas = document.getElementById('matrix-canvas');
     const ctx = canvas.getContext('2d');
@@ -64,7 +70,7 @@ function startMatrix() {
     const drops = Array(Math.floor(columns)).fill(1);
 
     function draw() {
-        ctx.fillStyle = "rgba(0, 0, 0, 0.1)"; // Harflar orqasidan iz qoldiradi
+        ctx.fillStyle = "rgba(0, 0, 0, 0.1)"; 
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         ctx.fillStyle = "#0f0";
         ctx.font = fontSize + "px monospace";
