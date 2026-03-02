@@ -1,4 +1,14 @@
-/* 1. Global Sozlamalar */
+/* =========================================
+   1. GLOBAL SOZLAMALAR VA FOYDA (ROOT)
+   ========================================= */
+:root {
+    --primary: #22d3ee;
+    --bg-dark: #0b0f1a;
+    --card-bg: rgba(22, 29, 47, 0.7);
+    --text-main: #f8fafc;
+    --text-dim: #94a3b8;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -14,7 +24,21 @@ body {
     overflow-x: hidden;
 }
 
-/* 2. Navigatsiya */
+/* Matrix foni uchun canvas */
+#matrix-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2; 
+    opacity: 0.3;
+    display: none;
+}
+
+/* =========================================
+   2. NAVIGATSIYA
+   ========================================= */
 nav {
     display: flex;
     justify-content: center;
@@ -29,7 +53,6 @@ nav {
     margin-bottom: 60px;
 }
 
-
 nav a {
     text-decoration: none;
     color: #94a3b8;
@@ -39,7 +62,9 @@ nav a {
 
 nav a:hover { color: #22d3ee; }
 
-/* 3. Home Section (Me) */
+/* =========================================
+   3. HOME SECTION (ME)
+   ========================================= */
 .me {
     display: flex;
     align-items: center;
@@ -50,9 +75,12 @@ nav a:hover { color: #22d3ee; }
     gap: 50px;
 }
 
-/* Tuzatildi: Ortiqcha yopuvchi qavs olib tashlandi */
+.me-text {
+    flex: 1.2;
+    text-align: left; 
+}
 
-/* 1. Ismni Gradiyent qilish */
+/* Ism dizayni */
 .gradient-text {
     font-size: 4.5rem;
     font-weight: 900;
@@ -64,82 +92,7 @@ nav a:hover { color: #22d3ee; }
     letter-spacing: -2px;
 }
 
-
-.glow-container {
-    position: relative;
-    padding: 5px;
-    background: linear-gradient(135deg, #22d3ee, #0ea5e9);
-    border-radius: 40px;
-    box-shadow: 0 0 60px rgba(34, 211, 238, 0.25);
-    transition: transform 0.4s ease;
-}
-
-.glow-container:hover {
-    transform: translateY(-10px) rotate(2deg);
-}
-
-
-.me-image img {
-    max-width: 380px;
-    display: block;
-    border-radius: 35px;
-    border: 2px solid #0b0f1a;
-}
-
-/* 3. Kodli oyna (Glassmorphism effekt) */
-.code-box {
-    margin-top: 30px;
-    background: rgba(22, 29, 47, 0.7);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    padding: 20px;
-    border-radius: 15px;
-    font-family: 'Courier New', monospace;
-    font-size: 0.85rem;
-    line-height: 1.5;
-    max-width: 400px;
-}
-
-.purple { color: #c678dd; }
-.green { color: #98c379; }
-
-/* 4. Typing Effect (Yozilish effekti) */
-.typing {
-    color: #22d3ee;
-    border-right: 2px solid #22d3ee;
-    white-space: nowrap;
-    overflow: hidden;
-    width: 0;
-    animation: typing 3s steps(40, end) forwards, blink 0.8s infinite;
-}
-
-@keyframes typing {
-    from { width: 0 }
-    to { width: 100% }
-}
-
-@keyframes blink {
-    50% { border-color: transparent }
-}
-
-/* 5. Mobil versiya uchun kichik tuzatish */
-@media (max-width: 992px) {
-    .me {
-        flex-direction: column-reverse;
-        text-align: center;
-        margin-top: 20px;
-    }
-    
-    .gradient-text { font-size: 3rem; }
-    
-    .me-text { display: flex; flex-direction: column; align-items: center; }
-}
-
-.me-text {
-    flex: 1.2;
-    text-align: left; 
-}
-
+/* Agar gradient-text ishlamasa, oddiy h1 uchun */
 .me-text h1 {
     font-size: 3.8rem;
     font-weight: 800;
@@ -163,11 +116,25 @@ nav a:hover { color: #22d3ee; }
     max-width: 500px;
 }
 
+/* Rasm dizayni */
 .me-image {
     flex: 0.8;
     display: flex;
     justify-content: center;
     position: relative;
+}
+
+.glow-container {
+    position: relative;
+    padding: 5px;
+    background: linear-gradient(135deg, #22d3ee, #0ea5e9);
+    border-radius: 40px;
+    box-shadow: 0 0 60px rgba(34, 211, 238, 0.25);
+    transition: transform 0.4s ease;
+}
+
+.glow-container:hover {
+    transform: translateY(-10px) rotate(2deg);
 }
 
 .me-image img {
@@ -178,6 +145,7 @@ nav a:hover { color: #22d3ee; }
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
     transition: all 0.4s ease;
+    display: block;
 }
 
 .me-image img:hover {
@@ -186,7 +154,92 @@ nav a:hover { color: #22d3ee; }
     box-shadow: 0 0 30px rgba(34, 211, 238, 0.2);
 }
 
-/* 4. About Section */
+/* Social Icons */
+.social-icons { 
+    display: flex; 
+    gap: 15px; 
+    margin: 15px 0; 
+    font-size: 1.5rem; 
+}
+.social-icons a { 
+    color: #fff; 
+    transition: 0.3s; 
+}
+.social-icons a:hover { color: #22d3ee; }
+
+/* =========================================
+   4. TERMINAL (GLASSMORPHISM)
+   ========================================= */
+.terminal-wrapper {
+    margin-top: 40px;
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.terminal-header {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 12px 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.dot { width: 10px; height: 10px; border-radius: 50%; }
+.red { background: #ff5f56; }
+.yellow { background: #ffbd2e; }
+.green { background: #27c93f; }
+
+.terminal-title {
+    color: #cbd5e1;
+    font-size: 12px;
+    margin-left: 10px;
+    font-family: monospace;
+}
+
+.terminal-body {
+    padding: 15px;
+    height: 180px;
+    overflow-y: auto;
+    font-family: monospace;
+    font-size: 14px;
+    color: white;
+}
+
+.input-line { display: flex; gap: 8px; margin-top: 5px; }
+#terminal-input { 
+    background: transparent; 
+    border: none; 
+    color: white; 
+    outline: none; 
+    width: 100%; 
+}
+
+/* Typing Effect */
+.typing {
+    color: #22d3ee;
+    border-right: 2px solid #22d3ee;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+    animation: typing 3s steps(40, end) forwards, blink 0.8s infinite;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink {
+    50% { border-color: transparent }
+}
+
+/* =========================================
+   5. ABOUT CARD SECTION
+   ========================================= */
 .about-container {
     display: flex;
     justify-content: center;
@@ -228,19 +281,6 @@ nav a:hover { color: #22d3ee; }
     line-height: 1.8;
 }
 
-.about-content strong {
-    color: #22d3ee;
-    font-weight: 600;
-}
-
-.strengths {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 40px;
-    flex-wrap: wrap;
-}
-
 .tag {
     background: rgba(34, 211, 238, 0.1);
     color: #22d3ee;
@@ -250,6 +290,8 @@ nav a:hover { color: #22d3ee; }
     font-weight: 600;
     border: 1px solid rgba(34, 211, 238, 0.2);
     transition: 0.3s;
+    display: inline-block;
+    margin: 5px;
 }
 
 .tag:hover {
@@ -258,7 +300,9 @@ nav a:hover { color: #22d3ee; }
     transform: translateY(-3px);
 }
 
-/* 5. Projects & Skills Section */
+/* =========================================
+   6. PROJECTS & SKILLS SECTION
+   ========================================= */
 main h1 {
     text-align: center;
     font-size: 3rem;
@@ -267,31 +311,32 @@ main h1 {
     margin: 40px 0;
 }
 
-.projects-container, .skills-container {
+.projects-container, .skills-container, .links-container {
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
     justify-content: center;
-    max-width: 1150px;
+    max-width: 1200px;
     margin: 0 auto 60px auto;
-    align-items: stretch; /* Bo'ylarni tenglaydi */
+    align-items: stretch;
 }
 
-.project-card, .skill-card {
+.project-card, .skill-card, .link-card {
     background: #161d2f;
     border: 1px solid rgba(255, 255, 255, 0.05);
     padding: 25px;
     border-radius: 24px;
-    flex: 1 1 350px;
-    max-width: 450px;
+    flex: 1 1 300px;
+    max-width: 400px;
     display: flex;
     flex-direction: column;
     transition: all 0.4s ease;
+    text-align: center;
 }
 
-.project-card:hover, .skill-card:hover {
-    transform: translateY(-10px) scale(1.02);
-    border-color: rgba(34, 211, 238, 0.4);
+.project-card:hover, .skill-card:hover, .link-card:hover {
+    transform: translateY(-10px);
+    border-color: #22d3ee;
     background: #1c253d;
 }
 
@@ -301,28 +346,18 @@ main h1 {
     object-fit: cover;
     border-radius: 16px;
     margin-bottom: 20px;
-    filter: grayscale(30%);
-    transition: 0.4s;
 }
 
-.project-card:hover .project-img {
-    filter: grayscale(0%);
+.skill-card img, .link-card img {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 15px auto;
+    display: block;
+    object-fit: contain;
+    filter: drop-shadow(0 0 8px rgba(34, 211, 238, 0.2));
 }
 
-.project-card h3 {
-    font-size: 1.5rem;
-    color: #ffffff;
-    margin-bottom: 12px;
-}
-
-.project-card p {
-    font-size: 1rem;
-    color: #94a3b8;
-    margin-bottom: 25px;
-    flex-grow: 1; /* Bo'sh joyni egallab tugmani pastga tushiradi */
-}
-
-/* 6. Button */
+/* Buttons */
 .btn {
     display: block;
     width: 100%;
@@ -341,185 +376,26 @@ main h1 {
 .btn:hover {
     background: #22d3ee;
     color: #0b0f1a;
-    box-shadow: 0 0 20px rgba(34, 211, 238, 0.3);
 }
 
-.skill-card img {
-    width: 60px; /* Ikonka o'lchami */
-    height: 60px;
-    object-fit: contain; /* Rasm formasini buzmaslik uchun */
-    margin: 0 auto 15px auto;
-    display: block;
-    filter: drop-shadow(0 0 8px rgba(34, 211, 238, 0.2)); /* Neon effekt */
-}
-
-.skill-card h3 {
-    margin-bottom: 10px;
-    color: #ffffff;
-}
-
-.skill-card p {
-    font-size: 0.95rem;
-    color: #94a3b8;
-}
-
-/* Skills container uchun qo'shimcha qator (bo'ylarni tenglash) */
-.skills-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    max-width: 1200px;
-    margin: 0 auto 100px auto;
-    align-items: stretch; /* Barcha skill-cardlar bo'yi bir xil bo'ladi */
-}
-
-/* Links Sahifasi uchun Maxsus Style */
-.links-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 25px;
-    justify-content: center;
-    max-width: 1000px;
-    margin: 0 auto 100px auto;
-    align-items: stretch;
-}
-
-.link-card {
-    background: #161d2f;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    padding: 30px;
-    border-radius: 24px;
-    flex: 1 1 220px; /* Kartochkalar biroz kichikroq bo'ladi */
-    max-width: 280px;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    transition: all 0.4s ease;
-}
-
-.link-card:hover {
-    transform: translateY(-10px);
-    border-color: #22d3ee;
-    background: #1c253d;
-}
-
-.link-card img {
-    width: 60px;
-    height: 60px;
-    margin: 0 auto 20px auto;
-    object-fit: contain;
-    filter: drop-shadow(0 0 10px rgba(34, 211, 238, 0.2));
-}
-
-.link-card h3 {
-    color: #ffffff;
-    margin-bottom: 10px;
-}
-
-.link-card p {
-    font-size: 0.9rem;
-    color: #94a3b8;
-    margin-bottom: 25px;
-    flex-grow: 1;
-}
-
-/* Tugmani link kartochkalariga moslash */
-.link-card .btn {
-    font-size: 0.85rem;
-    padding: 10px;
-}
-
-/* 7. Responsive */
-@media (max-width: 768px) {
+/* =========================================
+   7. RESPONSIVE (MOBIL)
+   ========================================= */
+@media (max-width: 992px) {
     .me {
         flex-direction: column-reverse;
         text-align: center;
+        margin-top: 20px;
     }
     
-    .me-text h1 {
-        white-space: normal;
-        font-size: 2.5rem;
-    }
+    .gradient-text, .me-text h1 { font-size: 2.8rem; white-space: normal; }
     
-    .me-image {
-        justify-content: center;
-    }
-
-    .about-card {
-        padding: 30px 20px;
-    }
-
-    .project-card {
-        flex: 1 1 100%;
-    }
+    .me-text { display: flex; flex-direction: column; align-items: center; }
+    
+    .me-image img { max-width: 300px; }
 }
 
-#matrix-canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -2; /* Hamma narsadan orqada */
-    opacity: 0.3; /* Ko'zga tashlanmasligi uchun xira qilingan */
-    display: none;
+@media (max-width: 768px) {
+    .about-card { padding: 30px 20px; }
+    .project-card, .skill-card, .link-card { flex: 1 1 100%; }
 }
-
-.terminal-wrapper {
-    margin-top: 40px;
-    background: rgba(15, 23, 42, 0.8);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-}
-
-.terminal-header {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 12px 18px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    border-radius: 10px 10px 0 0;
-}
-
-
-:root {
-    --primary: #22d3ee;
-    --bg-dark: #0b0f1a;
-    --card-bg: rgba(22, 29, 47, 0.7);
-    --text-main: #f8fafc;
-    --text-dim: #94a3b8;
-}
-
-
-.dot { width: 10px; height: 10px; border-radius: 50%; }
-.red { background: #ff5f56; }
-.yellow { background: #ffbd2e; }
-.green { background: #27c93f; }
-
-.terminal-title {
-    color: #cbd5e1;
-    font-size: 12px;
-    margin-left: 10px;
-    font-family: monospace;
-}
-
-.terminal-body {
-    padding: 15px;
-    height: 180px; /* Oxirgi yozganingizdagi qiymat saqlandi */
-    overflow-y: auto;
-    font-family: monospace;
-    font-size: 14px;
-    color: white;
-}
-
-.input-line { display: flex; gap: 8px; margin-top: 5px; }
-.input-area { display: flex; gap: 10px; }
-#terminal-input { background: transparent; border: none; color: white; outline: none; width: 100%; }
-
-.social-icons { display: flex; gap: 15px; margin: 15px 0; font-size: 1.5rem; }
-.social-icons a { color: #fff; transition: 0.3s; }
-.social-icons a:hover { color: #22d3ee; }
