@@ -9,6 +9,8 @@
 </head>
 <body>
 
+    <canvas id="matrix-canvas"></canvas>
+
     <nav>
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
@@ -25,12 +27,28 @@
                 
                 <p class="description">I am a natural problem solver who learns something new every day. Constantly pushing limits to grow in every direction.</p>
 
+                <div class="social-icons">
+                    <a href="#" target="_blank"><i class="fab fa-telegram"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
 
-                <div class="code-box">
-                    <pre><code><span class="purple">while</span> (alive) {
-  learn(<span class="green">'new_tech'</span>);
-  hack(<span class="green">'security'</span>);
-}</code></pre>
+                <div class="terminal-wrapper">
+                    <div class="terminal-header">
+                        <div class="buttons">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                        <div class="terminal-title">bash — root@bash</div>
+                    </div>
+                    <div class="terminal-body" id="terminal-screen">
+                        <div class="line">Tizim tayyor. <span class="cmd-highlight">'help'</span> deb yozing.</div>
+                        <div class="input-area">
+                            <span class="prompt">salmon@pentest:~$</span>
+                            <input type="text" id="terminal-input" autocomplete="off" autofocus>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -42,5 +60,75 @@
         </header>
     </main>
 
+    <script>
+        const terminalInput = document.getElementById('terminal-input');
+        const terminalScreen = document.getElementById('terminal-screen');
+        const canvas = document.getElementById('matrix-canvas');
+        const ctx = canvas.getContext('2d');
+        let matrixInterval;
+
+        
+        function startMatrix() {
+            canvas.style.display = 'block';
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            const letters = "0101010101010101";
+            const fontSize = 16;
+            const columns = canvas.width / fontSize;
+            const drops = Array(Math.floor(columns)).fill(1);
+
+            function draw() {
+                ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                ctx.fillStyle = "#0f0";
+                ctx.font = fontSize + "px monospace";
+                for (let i = 0; i < drops.length; i++) {
+                    const text = letters.charAt(Math.floor(Math.random() * letters.length));
+                    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                    if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+                    drops[i]++;
+                }
+            }
+            matrixInterval = setInterval(draw, 33);
+        }
+
+    
+        terminalInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                const cmd = terminalInput.value.trim().toLowerCase();
+                const userLine = document.createElement('div');
+                userLine.innerHTML = `<span class="prompt">salmon@pentest:~$</span> ${terminalInput.value}`;
+                terminalScreen.insertBefore(userLine, terminalInput.parentElement);
+
+                const response = document.createElement('div');
+                response.style.margin = "5px 0 10px 0";
+
+                if (cmd === 'help') {
+                    response.innerHTML = "Buyruqlar: about, hack, stop, clear";
+                } else if (cmd === 'hack') {
+                    response.style.color = "#0f0";
+                    response.innerHTML = "Access Granted! Matrix ishga tushdi...";
+                    startMatrix();
+                } else if (cmd === 'stop') {
+                    clearInterval(matrixInterval);
+                    canvas.style.display = 'none';
+                    response.innerHTML = "Matrix to'xtatildi.";
+                } else if (cmd === 'about') {
+                    response.innerHTML = "Salmon Qahhorov: Full-stack dev & Pentester in progress.";
+                } else if (cmd === 'clear') {
+                    const lines = terminalScreen.querySelectorAll('div:not(.input-area)');
+                    lines.forEach(l => l.remove());
+                    terminalInput.value = '';
+                    return;
+                } else {
+                    response.innerHTML = `<span style="color: #ff5f56">Error: '${cmd}' not found.</span>`;
+                }
+
+                terminalScreen.insertBefore(response, terminalInput.parentElement);
+                terminalInput.value = '';
+                terminalScreen.scrollTop = terminalScreen.scrollHeight;
+            }
+        });
+    </script>
 </body>
 </html>
