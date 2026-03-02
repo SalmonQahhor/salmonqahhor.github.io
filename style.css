@@ -6,11 +6,12 @@
 }
 
 body {
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    background-color: #0b0f1a; 
-    color: #e2e8f0;
-    line-height: 1.6; /* Tuzatildi: Ortiqcha 'a' harfi olib tashlandi */
-    padding: 0 20px;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #0b0f1a;
+    color: #f8fafc;
+    overflow-x: hidden;
 }
 
 /* 2. Navigatsiya */
@@ -20,7 +21,7 @@ nav {
     gap: 30px;
     background-color: rgba(11, 15, 26, 0.85);
     backdrop-filter: blur(15px);
-    padding: 20px 0;
+    padding: 30px 0;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -28,51 +29,61 @@ nav {
     margin-bottom: 60px;
 }
 
+
 nav a {
     text-decoration: none;
     color: #94a3b8;
     font-weight: 500;
-    transition: 0.3s ease;
+    transition: 0.3s;
 }
 
-nav a:hover {
-    color: #22d3ee;
-}
+nav a:hover { color: #22d3ee; }
 
 /* 3. Home Section (Me) */
 .me {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    gap: 40px;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 50px 20px;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 40px;
+    gap: 50px;
 }
 
 /* Tuzatildi: Ortiqcha yopuvchi qavs olib tashlandi */
 
 /* 1. Ismni Gradiyent qilish */
 .gradient-text {
-    background: linear-gradient(90deg, #ffffff, #22d3ee);
+    font-size: 4.5rem;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 10px;
+    background: linear-gradient(135deg, #ffffff 40%, #22d3ee);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-weight: bold;
+    letter-spacing: -2px;
 }
 
-/* 2. Rasm atrofidagi Neon Glow (Skrinshotdagi kabi) */
+
 .glow-container {
     position: relative;
-    padding: 8px; /* Ramka qalinligi */
-    background: linear-gradient(45deg, #22d3ee, #00d2ff, #22d3ee);
-    border-radius: 35px; /* Rasm burchagi */
-    box-shadow: 0 0 30px rgba(34, 211, 238, 0.4);
+    padding: 5px;
+    background: linear-gradient(135deg, #22d3ee, #0ea5e9);
+    border-radius: 40px;
+    box-shadow: 0 0 60px rgba(34, 211, 238, 0.25);
+    transition: transform 0.4s ease;
 }
 
+.glow-container:hover {
+    transform: translateY(-10px) rotate(2deg);
+}
+
+
 .me-image img {
-    max-width: 320px; 
-    height: auto;
-    border-radius: 30px;
+    max-width: 380px;
+    display: block;
+    border-radius: 35px;
+    border: 2px solid #0b0f1a;
 }
 
 /* 3. Kodli oyna (Glassmorphism effekt) */
@@ -112,14 +123,20 @@ nav a:hover {
 }
 
 /* 5. Mobil versiya uchun kichik tuzatish */
-@media (max-width: 768px) {
-    .gradient-text { font-size: 2.5rem; }
-    .me-image img { max-width: 280px; }
-    .typing { white-space: normal; width: auto; animation: none; border: none; }
+@media (max-width: 992px) {
+    .me {
+        flex-direction: column-reverse;
+        text-align: center;
+        margin-top: 20px;
+    }
+    
+    .gradient-text { font-size: 3rem; }
+    
+    .me-text { display: flex; flex-direction: column; align-items: center; }
 }
 
 .me-text {
-    flex: 1;
+    flex: 1.2;
     text-align: left; 
 }
 
@@ -134,10 +151,10 @@ nav a:hover {
 }
 
 .me-text h2 {
-    font-size: 1.5rem;
-    color: #22d3ee; 
+    font-size: 1.6rem;
+    color: #e2e8f0;
+    margin-bottom: 20px;
     font-weight: 500;
-    margin-bottom: 25px;
 }
 
 .me-text p {
@@ -147,9 +164,10 @@ nav a:hover {
 }
 
 .me-image {
-    flex: 1;
+    flex: 0.8;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
+    position: relative;
 }
 
 .me-image img {
@@ -449,23 +467,33 @@ main h1 {
 }
 
 .terminal-wrapper {
-    width: 100%;
-    max-width: 450px; 
-    background: rgba(15, 23, 42, 0.9);
-    border-radius: 10px;
-    margin-top: 20px;
-    border: 1px solid #334155;
+    margin-top: 40px;
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
     overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
 }
 
 .terminal-header {
-    background: #1e293b; /* Tuzatildi: Takrorlanish bittaga keltirildi */
-    padding: 10px 15px; /* Tuzatildi: Padding qiymatlari birlashtirildi */
+    background: rgba(255, 255, 255, 0.05);
+    padding: 12px 18px;
     display: flex;
     align-items: center;
     gap: 8px;
     border-radius: 10px 10px 0 0;
 }
+
+
+:root {
+    --primary: #22d3ee;
+    --bg-dark: #0b0f1a;
+    --card-bg: rgba(22, 29, 47, 0.7);
+    --text-main: #f8fafc;
+    --text-dim: #94a3b8;
+}
+
 
 .dot { width: 10px; height: 10px; border-radius: 50%; }
 .red { background: #ff5f56; }
