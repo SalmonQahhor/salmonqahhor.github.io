@@ -440,3 +440,20 @@ main h1 {
     }
 
 }
+
+
+#matrix-canvas { position: fixed; top: 0; left: 0; z-index: -1; display: none; }
+.terminal-wrapper { 
+    background: rgba(10, 15, 25, 0.9); 
+    border: 1px solid #22d3ee44; 
+    border-radius: 10px; 
+    margin-top: 20px; 
+    font-family: monospace;
+}
+.terminal-header { background: #1e293b; padding: 8px; display: flex; align-items: center; border-radius: 10px 10px 0 0; }
+.terminal-body { padding: 15px; height: 180px; overflow-y: auto; }
+.input-area { display: flex; gap: 10px; }
+#terminal-input { background: transparent; border: none; outline: none; color: #fff; width: 100%; }
+.social-icons { display: flex; gap: 15px; margin: 15px 0; font-size: 1.5rem; }
+.social-icons a { color: #fff; transition: 0.3s; }
+.social-icons a:hover { color: #22d3ee; }
