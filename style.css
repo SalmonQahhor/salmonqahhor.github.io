@@ -9,7 +9,7 @@ body {
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     background-color: #0b0f1a; 
     color: #e2e8f0;
-    line-height: 1.6;
+    line-height: 1.6; /* Tuzatildi: Ortiqcha 'a' harfi olib tashlandi */
     padding: 0 20px;
 }
 
@@ -49,7 +49,9 @@ nav a:hover {
     margin: 0 auto;
     padding: 50px 20px;
 }
-}
+
+/* Tuzatildi: Ortiqcha yopuvchi qavs olib tashlandi */
+
 /* 1. Ismni Gradiyent qilish */
 .gradient-text {
     background: linear-gradient(90deg, #ffffff, #22d3ee);
@@ -324,7 +326,6 @@ main h1 {
     box-shadow: 0 0 20px rgba(34, 211, 238, 0.3);
 }
 
-
 .skill-card img {
     width: 60px; /* Ikonka o'lchami */
     height: 60px;
@@ -344,8 +345,6 @@ main h1 {
     color: #94a3b8;
 }
 
-
-
 /* Skills container uchun qo'shimcha qator (bo'ylarni tenglash) */
 .skills-container {
     display: flex;
@@ -356,8 +355,6 @@ main h1 {
     margin: 0 auto 100px auto;
     align-items: stretch; /* Barcha skill-cardlar bo'yi bir xil bo'ladi */
 }
-
-
 
 /* Links Sahifasi uchun Maxsus Style */
 .links-container {
@@ -415,8 +412,6 @@ main h1 {
     padding: 10px;
 }
 
-
-
 /* 7. Responsive */
 @media (max-width: 768px) {
     .me {
@@ -440,11 +435,7 @@ main h1 {
     .project-card {
         flex: 1 1 100%;
     }
-
 }
-
-
-
 
 #matrix-canvas {
     position: fixed;
@@ -457,7 +448,6 @@ main h1 {
     display: none;
 }
 
-
 .terminal-wrapper {
     width: 100%;
     max-width: 450px; 
@@ -469,11 +459,12 @@ main h1 {
 }
 
 .terminal-header {
-    background: #334155;
-    padding: 8px 15px;
+    background: #1e293b; /* Tuzatildi: Takrorlanish bittaga keltirildi */
+    padding: 10px 15px; /* Tuzatildi: Padding qiymatlari birlashtirildi */
     display: flex;
     align-items: center;
     gap: 8px;
+    border-radius: 10px 10px 0 0;
 }
 
 .dot { width: 10px; height: 10px; border-radius: 50%; }
@@ -490,7 +481,7 @@ main h1 {
 
 .terminal-body {
     padding: 15px;
-    height: 200px;
+    height: 180px; /* Oxirgi yozganingizdagi qiymat saqlandi */
     overflow-y: auto;
     font-family: monospace;
     font-size: 14px;
@@ -498,16 +489,9 @@ main h1 {
 }
 
 .input-line { display: flex; gap: 8px; margin-top: 5px; }
+.input-area { display: flex; gap: 10px; }
 #terminal-input { background: transparent; border: none; color: white; outline: none; width: 100%; }
-.input-area { display: flex; gap: 10px; }
-.social-icons { display: flex; gap: 15px; margin: 15px 0; font-size: 1.5rem; }
-.social-icons a { color: #fff; transition: 0.3s; }
-.social-icons a:hover { color: #22d3ee; }
 
-.terminal-header { background: #1e293b; padding: 8px; display: flex; align-items: center; border-radius: 10px 10px 0 0; }
-.terminal-body { padding: 15px; height: 180px; overflow-y: auto; }
-.input-area { display: flex; gap: 10px; }
-#terminal-input { background: transparent; border: none; outline: none; color: #fff; width: 100%; }
 .social-icons { display: flex; gap: 15px; margin: 15px 0; font-size: 1.5rem; }
 .social-icons a { color: #fff; transition: 0.3s; }
 .social-icons a:hover { color: #22d3ee; }
