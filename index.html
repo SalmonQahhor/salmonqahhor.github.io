@@ -32,33 +32,41 @@
                     <a href="#" target="_blank"><i class="fab fa-github"></i></a>
                     <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
                 </div>
-<div class="terminal-wrapper">
-    <div class="terminal-header" style="background: #334155; padding: 8px 15px; display: flex; gap: 8px;">
-        <span style="width:12px; height:12px; background:#ff5f56; border-radius:50%"></span>
-        <span style="width:12px; height:12px; background:#ffbd2e; border-radius:50%"></span>
-        <span style="width:12px; height:12px; background:#27c93f; border-radius:50%"></span>
-        <span style="color: #cbd5e1; font-size: 12px; margin-left: 10px; font-family: monospace;">bash — salmon@portfolio</span>
-    </div>
-    
-    <div class="me-image">
+
+                <div class="terminal-wrapper">
+                    <div class="terminal-header">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                        <span class="terminal-title">bash — salmon@portfolio</span>
+                    </div>
+                    
+                    <div class="terminal-body" id="terminal-screen">
+                        <div id="output-area">
+                            <div style="color: #94a3b8;">Tizim tayyor. 'help' deb yozing.</div>
+                        </div>
+                        <div class="input-line">
+                            <span class="prompt">salmon@pentest:~$</span>
+                            <input type="text" id="terminal-input" spellcheck="false" autofocus>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="me-image">
                 <div class="glow-container">
                     <img src="images/salmon.JPEG" alt="Salmon">
                 </div>
-        
-    <div class="terminal-body" id="terminal-screen" style="padding: 15px; height: 200px; overflow-y: auto; font-family: monospace;">
-        <div style="color: #94a3b8;">Tizim tayyor. 'help' deb yozing.</div>
-        <div class="input-area" style="display: flex; gap: 8px; margin-top: 5px;">
-            <span style="color: #2ecc71;">salmon@pentest:~$</span>
-            <input type="text" id="terminal-input" style="background:transparent; border:none; color:white; outline:none; width:100%;" autofocus>
-        </div>
-    </div>
-</div>
+            </div>
+        </header>
+    </main>
 
 <script>
+const terminalInput = document.getElementById('terminal-input');
+const outputArea = document.getElementById('output-area');
+const canvas = document.getElementById('matrix-canvas');
 
-    
 function startMatrix() {
-    const canvas = document.getElementById('matrix-canvas');
     const ctx = canvas.getContext('2d');
     canvas.style.display = 'block';
     canvas.width = window.innerWidth;
@@ -85,17 +93,43 @@ function startMatrix() {
     setInterval(draw, 35);
 }
 
-// Terminal logikasi (hack buyrug'i uchun)
-document.getElementById('terminal-input').addEventListener('keydown', function(e) {
+// Terminal buyruqlar logikasi
+terminalInput.addEventListener('keydown', function(e) {
     if (e.key === 'Enter') {
-        const cmd = this.value.toLowerCase().trim();
-        if (cmd === 'hack') {
-            startMatrix(); // Faqat orqa fonda ishga tushadi
-            const res = document.createElement('div');
-            res.innerHTML = "<span style='color:#0f0'>Access Granted! Matrix orqa fonda yoqildi...</span>";
-            document.getElementById('terminal-screen').insertBefore(res, this.parentElement);
+        const fullCmd = this.value.trim();
+        const cmd = fullCmd.toLowerCase();
+        
+        // Komandani ekranda qoldirish
+        const userLine = document.createElement('div');
+        userLine.innerHTML = `<span style="color: #2ecc71;">salmon@pentest:~$</span> ${fullCmd}`;
+        outputArea.appendChild(userLine);
+
+        const res = document.createElement('div');
+        res.style.marginBottom = "10px";
+
+        if (cmd === 'help') {
+            res.innerHTML = "Mavjud buyruqlar: <br> - <span style='color:#22d3ee'>about</span>: Men haqimda <br> - <span style='color:#22d3ee'>hack</span>: Matrixni yoqish <br> - <span style='color:#22d3ee'>clear</span>: Tozalash";
+        } else if (cmd === 'hack') {
+            startMatrix();
+            res.innerHTML = "<span style='color:#0f0'>Access Granted! Matrix yoqildi...</span>";
+        } else if (cmd === 'about') {
+            res.innerHTML = "Salmon Qahhorov — Full-Stack Developer va Pentestga qiziquvchi.";
+        } else if (cmd === 'clear') {
+            outputArea.innerHTML = '';
+            this.value = '';
+            return;
+        } else if (cmd !== "") {
+            res.innerHTML = `<span style="color:#ff5f56">Error: '${fullCmd}' buyrug'i topilmadi.</span>`;
         }
+
+        outputArea.appendChild(res);
         this.value = '';
+        
+        // Avtomatik pastga tushish
+        const screen = document.getElementById('terminal-screen');
+        screen.scrollTop = screen.scrollHeight;
     }
 });
 </script>
+</body>
+</html>
